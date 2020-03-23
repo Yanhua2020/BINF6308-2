@@ -1,0 +1,14 @@
+*.*
+!*.sh
+!*.pl
+!*.py
+!*.md
+!*.Rmd
+!*.png
+!*.jpg
+!*.ris
+!.gitignore
+*.fastq
+*.fasta
+*.err
+*.log
