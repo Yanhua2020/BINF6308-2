@@ -2,6 +2,9 @@
 !*.sh
 !*.pl
 !*.py
+!*.out
+!scaffolds.fasta
+!*.R
 !*.md
 !*.Rmd
 !*.png
