@@ -20,27 +20,26 @@ colnames(kegg) <- c("sacc", "kegg")
 kegg$sacc <- gsub("up:", "", kegg$sacc)
 # Merge the tables. Since one column name in common, just give
 # the two tables as parameters to merge.
+blast_kegg <- merge(blast, kegg )
 
+# merge the KO
 KO <- read.table("ko.txt", sep="\t", header=FALSE)
 colnames(KO) <- c("kegg","KO")
-
-
-blast_kegg <- merge(blast, kegg )
 blast_kegg_KO <-merge(blast_kegg, KO)
 
+# merge the pathway
 pathway<-read.table("koPathway.txt", sep="\t", header=FALSE)
 colnames(pathway)<-c("KO","Pathway_IDs")
-
 blast_kegg_KO_pathway<-merge(blast_kegg_KO, pathway)
 
+# merge the pathway descriptions 
 PathwayDesc<-read.table("ko",sep="\t", header=FALSE)
 colnames(PathwayDesc) <- c("Pathway_IDs","Pathway_Desc")
-
 blast_kegg_KO_pathway_PathwayDesc<-merge(blast_kegg_KO_pathway, PathwayDesc)
 
-
+# Display the first few lines of output
 head (blast_kegg_KO_pathway_PathwayDesc)
 
-# Display the first few lines of output
-
+#output file into a csv formate
+write.csv ( blast_kegg_KO_pathway_PathwayDesc, "mergeAll.csv")
 
