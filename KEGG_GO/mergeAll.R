@@ -41,5 +41,5 @@ blast_kegg_KO_pathway_PathwayDesc<-merge(blast_kegg_KO_pathway, PathwayDesc)
 head (blast_kegg_KO_pathway_PathwayDesc)
 
 #output file into a csv formate
-write.csv ( blast_kegg_KO_pathway_PathwayDesc, "mergeAll.csv")
+write.table ( blast_kegg_KO_pathway_PathwayDesc, "mergeAll.tsv", row.names=FALSE, sep="\t")
 
