@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# spades.py
+# spades.sh
 
 nice -n19 /usr/local/programs/SPAdes-3.10.0-Linux/bin/spades.py \
 -o Rhodo \
