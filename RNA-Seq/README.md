@@ -1,12 +1,12 @@
 # Short Read Alignment
 
-## Yanhua Gao
+### author: Yanhua Gao
 
 #  Methods
 
 ### Source of data
 
-# The data came from a experiment which was designed to study immune response and symbiosis of the sea anemones, Aiptasis pallida (Sweeney, 2020). In the beginning of the experiment, 24 sea anemones were randomly collected (four treatments each with six replicates). In order to identify the difference in the gene expression level, the genomic reading of these 24 selected sea anemones were analyzed by aligning their RNA sequence against the built GMAP database (Sweeney,2020). To reduce the computational time, a set of QC sequencing results instead of the full data set was chosen for this module.
+The data came from a experiment which was designed to study immune response and symbiosis of the sea anemones, Aiptasis pallida [[3]](#3). In the beginning of the experiment, 24 sea anemones were randomly collected (four treatments each with six replicates). In order to identify the difference in the gene expression level, the genomic reading of these 24 selected sea anemones were analyzed by aligning their RNA sequence against the built GMAP database (Sweeney,2020). To reduce the computational time, a set of QC sequencing results instead of the full data set was chosen for this module.
 
 ### Procedure  and scrips  
 
@@ -20,5 +20,5 @@ The alignment includes four steps. Each step is completed by one scrip, which me
 
 #### 2. Samtools - Documentation. (2019). Retrieved April 12, 2020, from http://www.htslib.org/doc/
 
-##### 3. Sweeney, T. (2020). Module 6: Short Read Alignment. [Gitbook slides] Retrieved February 20, 2020, from https://app.gitbook.com/@bioinformatics/s/binf6308/module_6/module_6_pra    ctice
+<a id="3">[3]</a> . Sweeney, T. (2020). Module 6: Short Read Alignment. [Gitbook slides] Retrieved February 20, 2020, from https://app.gitbook.com/@bioinformatics/s/binf6308/module_6/module_6_practice
 
