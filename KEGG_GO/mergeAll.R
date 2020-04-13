@@ -1,9 +1,9 @@
-#!/usr/bin/env Rscript
+# !/usr/bin/env Rscript
 # mergeAll.R
 
 # Load BLAST results as a table using tab (\t) as separator.
 # There is no header with column names, so set header=FALSE
-blast <- read.table("../BLAST/alignPredicted.txt", sep="\t", header=FALSE)
+blast <- read.table ("../BLAST/alignPredicted.txt", sep="\t", header=FALSE)
 # Set column names to match fields selected in BLAST
 colnames(blast) <- c("qseqid", "sacc", "qlen", "slen",
                          "length", "nident", "pident", "evalue", "stitle")
@@ -23,23 +23,34 @@ kegg$sacc <- gsub("up:", "", kegg$sacc)
 blast_kegg <- merge(blast, kegg )
 
 # merge the KO
-KO <- read.table("ko.txt", sep="\t", header=FALSE)
-colnames(KO) <- c("kegg","KO")
-blast_kegg_KO <-merge(blast_kegg, KO)
+#KO <- read.table("ko.txt", sep="\t", header=FALSE)
+#colnames(KO) <- c("kegg","KO")
+#blast_kegg_KO <-merge(blast_kegg, KO)
 
 # merge the pathway
-pathway<-read.table("koPathway.txt", sep="\t", header=FALSE)
-colnames(pathway)<-c("KO","Pathway_IDs")
-blast_kegg_KO_pathway<-merge(blast_kegg_KO, pathway)
+#pathway<-read.table("koPathway.txt", sep="\t", header=FALSE)
+#colnames(pathway)<-c("KO","Pathway_IDs")
+#blast_kegg_KO_pathway<-merge(blast_kegg_KO, pathway)
 
 # merge the pathway descriptions 
-PathwayDesc<-read.table("ko",sep="\t", header=FALSE)
-colnames(PathwayDesc) <- c("Pathway_IDs","Pathway_Desc")
-blast_kegg_KO_pathway_PathwayDesc<-merge(blast_kegg_KO_pathway, PathwayDesc)
+#PathwayDesc<-read.table("ko",sep="\t", header=FALSE)
+#colnames(PathwayDesc) <- c("Pathway_IDs","Pathway_Desc")
+#blast_kegg_KO_pathway_PathwayDesc<-merge(blast_kegg_KO_pathway, PathwayDesc)
 
 # Display the first few lines of output
-head (blast_kegg_KO_pathway_PathwayDesc)
+#head (blast_kegg_KO_pathway_PathwayDesc)
+
+# merge the go file
+go <- read.table("sp_go.txt", sep="\t", header=FALSE)
+#colnames(go) <- c("sacc", "GOTerm")
+# mergedfile<-merge(blast_kegg, go)
+head (go)
+
+#blast_kegg_go <- merge(blast_kegg, go)
+#head(blast_kegg_go)
+
+
 
 #output file into a csv formate
-write.table ( blast_kegg_KO_pathway_PathwayDesc, "mergeAll.tsv", row.names=FALSE, sep="\t")
+#write.table ( blast_kegg_KO_pathway_PathwayDesc, "mergeAll.tsv", row.names=FALSE, sep="\t")
 
