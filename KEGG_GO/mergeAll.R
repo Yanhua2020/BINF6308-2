@@ -21,7 +21,6 @@ kegg$sacc <- gsub("up:", "", kegg$sacc)
 # Merge the tables. Since one column name in common, just give
 # the two tables as parameters to merge.
 blast_kegg <- merge(blast, kegg)
-
 # merge the KO
 KO <- read.table("ko.txt", sep="\t", header=FALSE)
 colnames(KO) <- c("kegg","KO")
@@ -39,12 +38,18 @@ blast_kegg_KO_pathway_PathwayDesc<-merge(blast_kegg_KO_pathway, PathwayDesc)
 
 
 # merge the go file
-go <- read.table("sp_go.txt", sep="\t", header=FALSE)
+go <- read.table("sp_go.txt", sep="\t",stringsAsFactor=FALSE, header=FALSE, fill=FALSE, quote = "")
 colnames(go) <- c("sacc", "GOTerm")
 mergedfile<-merge(blast_kegg_KO_pathway_PathwayDesc, go)
 head (mergedfile)
 
 
 #output file into a csv formate
-write.table ( mergedfile "mergedfile.tsv", row.names=FALSE, sep="\t")
+write.table ( mergedfile, "mergedfile.tsv", row.names=FALSE, sep="\t") 
+
+
+
+
+
+
 
