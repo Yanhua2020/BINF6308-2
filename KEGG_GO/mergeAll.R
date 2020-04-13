@@ -3,7 +3,7 @@
 
 # Load BLAST results as a table using tab (\t) as separator.
 # There is no header with column names, so set header=FALSE
-blast <- read.table("../BLAST/alignPreicted.txt", sep="\t", header=FALSE)
+blast <- read.table("../BLAST/alignPredicted.txt", sep="\t", header=FALSE)
 # Set column names to match fields selected in BLAST
 colnames(blast) <- c("qseqid", "sacc", "qlen", "slen",
                          "length", "nident", "pident", "evalue", "stitle")
